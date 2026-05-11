@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='energy_style.css')}}">
+  <title>EnergyConsumption</title>
+</head>
+<body>
+  <div class="Front">
+    <form action="/" method="POST">
+      <h1>Energy Consumption Category Predictor</h1>
+      <br>
+      <p>Enter details below</p>
+      <label>Number of occupants:</label>
+      <input type="number" name="occupants" placeholder="Enter Number of occupants" required>
+      <br>
+      <label>Number of Rooms:</label>
+      <input type="number" name="rooms" placeholder="Enter number of rooms" required>
+      <br>
+      <label>Number of appliances:</label>
+      <input type="number" name="appliances" placeholder="Enter number of appliances" required>
+      <br>
+      <label>Building Age:</label>
+      <input step="any" type="number" name="age" placeholder="Enter building age" required>
+      <br>
+      <label>Hours Power Daily:</label>
+      <input step="any" type="number" name="hour_usage" placeholder="Enter hours of power daily" required>
+      <br>
+      <label>Solar Capacity(kW):</label>
+      <input step="any" type="number" name="solar_capacity" placeholder="Enter Solar Capacity(Enter 0 if no solar)" required>
+      <br>
+      <label>Peak Hour Usage:</label>
+      <input step="any" type="number" name="peak_usage" placeholder="Enter max hour power usage recorded" required>
+      <br>
+      <label>Number of AC units:</label>
+      <input type="number" name="num_AC" placeholder="Enter number of AC units" required>
+      <br>
+      <label>Number of Freezers:</label>
+      <input type="number" name="num_freezers" placeholder="Enter number of freezers" required>
+      <br>
+      <label>Monthly Income(NGN):</label>
+      <input step="any" type="number" name="income" placeholder="Enter Monthly Income" required>
+      <br>
+      <label>Monthly Bill(NGN):</label>
+      <input step="any" type="number" name="bill" placeholder="Enter Monthly Bill" required>
+      <br>
+      <label>Generator Fuel Cost(NGN):</label>
+      <input step="any" type="number" name="fuel_cost" placeholder="Enter Generator Fuel Cost" required>
+      <br>
+      <label>Monthly Consumption(kWh):</label>
+      <input step="any" type="number" name="monthly_consumption" placeholder="Enter Monthly Consumption" required>
+      <br>
+      <label>State:</label>
+      <select name="state">
+        <option value="Delta">Delta</option>
+        <option value="Rivers">Rivers</option>
+        <option value="Niger">Niger</option>
+        <option value="Sokoto">Sokoto</option>
+        <option value="Plateau">Plateau</option>
+        <option value="Oyo">Oyo</option>
+        <option value="Kwara">Kwara</option>
+        <option value="Kano">Kano</option>
+        <option value="Enugu">Enugu</option>
+        <option value="Kaduna">Kaduna</option>
+        <option value="Abuja">Abuja</option>
+        <option value="Bauchi">Bauchi</option>
+        <option value="Lagos">Lagos</option>
+      </select>
+      <br>
+      <label>Sector:</label>
+      <select name="sector">
+        <option value="Residential">Residential</option>
+        <option value="Industrial">Industrial</option>
+        <option value="Government">Government</option>
+        <option value="Commercial">Commercial</option>
+        <option value="Agricultutal">Agricultutal</option>
+      </select>
+      <br>
+      <label>Building Type:</label>
+      <select name="building_type">
+        <option value="Bungalow">Bungalow</option>
+        <option value="Flat">Flat</option>
+        <option value="Duplex">Duplex</option>
+        <option value="Office">Office</option>
+        <option value="Warehouse">Warehouse</option>
+        <option value="Shop">Shop</option>
+        <option value="Factory">Factory</option>
+        </select>
+        <br>
+      <label>Electricity Source:</label>
+     <select name="source">
+         <option value="NEPA/PHCN">NEPA/PHCN</option>
+         <option value="Generator">Generator</option>
+         <option value="Solar">Solar</option>
+         <option value="Both">Both</option>
+      </select>
+      <br>
+      <label>Tarrif B and:</label>
+      <select name="tarrifBand">
+        <option value="B and A"> B and A</option>
+        <option value="B and B"> B and B</option>
+        <option value="B and C">B and C</option>
+        <option value="B and D">B and D</option>
+        <option value="B and E">B and E</option>
+      </select>
+      <br>
+      <label>Has Meter:</label>
+      <select name="has_meter">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="Prepaid">Prepaid</option>
+        <option value="Postpaid">Postpaid</option>
+      </select>
+      <br>
+      <label>Backup Power:</label>
+      <select name="backup">
+        <option value="Solar">Solar</option>
+        <option value="Generator">Generator</option>
+        <option value="UPS">UPS(Undisrupted Power System)</option>
+        <option value="No Backup">No Backup</option>
+      </select>
+      <label>Renewable Energy:</label>
+      <select name="renewable_energy">
+        <option value="0">No</option>
+        <option value="1">Yes</option> 
+      </select>
+      <br>
+      <button type="submit">Predicts</button>
+      <br>
+       <div>
+        {% if category %}
+        <div class="{{cat_class}}">{{ category }}</div>
+        {% endif %}
+       </div>
+    </form>
+  </div>
+</body>
+</html>
