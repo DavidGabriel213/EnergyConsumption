@@ -5,7 +5,7 @@ import joblib
 import os
 
 model=joblib.load('LGBM_model.joblib')
-preprocessor=joblib.load('preprocessor/preprocessor_.joblib')
+preprocessor=joblib.load('preprocessor.joblib')
 print('model and preprocessor loaded')
 app=Flask(__name__)
 @app.route('/',methods=['GET','POST'])
