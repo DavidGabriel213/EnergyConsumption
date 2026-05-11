@@ -5,7 +5,7 @@ import pandas as pd
 import joblib
 import os
 
-model=joblib.load('NeuralNetwork.h5')
+model = tf.keras.models.load_model('NeuralNetwork.h5')
 preprocessor=joblib.load('PREPROCESSOR.joblib')
 print('model and preprocessor loaded')
 app=Flask(__name__)
