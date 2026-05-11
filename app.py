@@ -5,7 +5,7 @@ import pandas as pd
 import joblib
 import os
 
-model=joblib.load('LGBM_model.joblib')
+model=joblib.load('NeuralNetwork.h5')
 preprocessor=joblib.load('PREPROCESSOR.joblib')
 print('model and preprocessor loaded')
 app=Flask(__name__)
@@ -59,7 +59,7 @@ def myfunc():
                               "TariffBand":[TariffBand],"HasMeter":[HasMeter],"BackupPower":[BackupPower],"RenewableEnergy":[RenewableEnergy]
                               })
         # preprocessing
-        FEATURES=PREPROCESSOR.transform(feature)
+        FEATURES=preprocessor.transform(feature)
         proba=model.predict(FEATURES)
         prediction=np.argmax(proba[0])
         if prediction==0:
