@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request
 import numpy as np 
+import tensorflow as tf
 import pandas as pd
 import joblib
 import os
 
 model=joblib.load('LGBM_model.joblib')
-preprocessor=joblib.load('preprocessor/preprocessor_.joblib')
+preprocessor=joblib.load('PREPROCESSOR.joblib')
 print('model and preprocessor loaded')
 app=Flask(__name__)
 @app.route('/',methods=['GET','POST'])
@@ -58,8 +59,9 @@ def myfunc():
                               "TariffBand":[TariffBand],"HasMeter":[HasMeter],"BackupPower":[BackupPower],"RenewableEnergy":[RenewableEnergy]
                               })
         # preprocessing
-        FEATURES=preprocessor.transform(feature)
-        prediction=model.predict(FEATURES)[0]
+        FEATURES=PREPROCESSOR.transform(feature)
+        proba=model.predict(FEATURES)
+        prediction=np.argmax(proba[0])
         if prediction==0:
             category="High"
         elif prediction==1:
