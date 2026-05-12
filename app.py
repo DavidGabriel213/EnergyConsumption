@@ -77,4 +77,4 @@ def myfunc():
     return render_template("front.html", category=category, cat_class=cat_class)
 if __name__==('__main__'):
     port =int(os.environ.get('PORT',5000))
-    app.run(host='0.0.0.0',port=port,debug=True)   
+    app.run(host='0.0.0.0',port=port,debug=True)    
