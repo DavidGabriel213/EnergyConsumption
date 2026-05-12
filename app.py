@@ -4,7 +4,7 @@ import pandas as pd
 import joblib
 import os
 
-model=joblib.load('LGBM_model.joblib')
+model=joblib.load('XGB_model.joblib')
 preprocessor=joblib.load('preprocessor/preprocessor_.joblib')
 app=Flask(__name__)
 @app.route('/',methods=['GET','POST'])
