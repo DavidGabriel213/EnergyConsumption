@@ -3,7 +3,7 @@
 A complete multi-class ML project predicting household energy consumption category — **Low, Moderate, High or Very High** — trained on 20,080 Nigerian household records. All 6 models trained including Neural Network. XGBoost deployed.
 
 ## 🌐 Live Demo
-**[Try the app →](https://web-energyconsumption.up.railway.app)**
+**[Try the app →](https://energyconsumption-xydx.onrender.com)**
 
 ---
 
